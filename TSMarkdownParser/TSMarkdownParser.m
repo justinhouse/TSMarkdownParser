@@ -76,14 +76,14 @@
                                  range:range];
     }];
     
+    [defaultParser addListParsingWithFormattingBlock:^(NSMutableAttributedString *attributedString, NSRange range) {
+        [attributedString replaceCharactersInRange:range withString:@"•\t"];
+    }];
+    
     [defaultParser addEmphasisParsingWithFormattingBlock:^(NSMutableAttributedString *attributedString, NSRange range) {
         [attributedString addAttribute:NSFontAttributeName
                                  value:weakParser.emphasisFont
                                  range:range];
-    }];
-    
-    [defaultParser addListParsingWithFormattingBlock:^(NSMutableAttributedString *attributedString, NSRange range) {
-        [attributedString replaceCharactersInRange:range withString:@"•\t"];
     }];
     
     [defaultParser addLinkParsingWithFormattingBlock:^(NSMutableAttributedString *attributedString, NSRange range) {
